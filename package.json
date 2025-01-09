@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && prisma generate",
+    "build": "next build && prisma generate && npm install --legacy-peer-deps",
+    "heroku-postbuild": "npm install --legacy-peer-deps && npm run build",
     "start": "next start",
     "lint": "next lint"
   },
