@@ -1,0 +1,91 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String  @id @default(cuid())
+  email    String  @unique
+  name     String?
+  role     String  @default("Staff")
+  password String
+
+  shiftId String?
+  shift   Shift?  @relation(fields: [shiftId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  attendance Attendance[]
+  leave      Leave[]
+}
+
+model Shift {
+  id        String  @id @default(cuid())
+  name      String
+  day       String
+  startTime String?
+  endTime   String?
+  isOff     Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user       User[]
+  attendance Attendance[]
+}
+
+model Attendance {
+  id      String  @id @default(cuid())
+  date    String
+  timeIn  String?
+  timeOut String?
+  status  String
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  shiftId String
+  shift   Shift  @relation(fields: [shiftId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Leave {
+  id        String @id @default(cuid())
+  type      String
+  startDate String
+  endDate   String
+  reason    String
+  status    String @default("Pending")
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Logs {
+  id        String   @id @default(cuid())
+  action    String
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Inventory {
+  id          String  @id @default(cuid())
+  name        String
+  category    String
+  quantity    Int
+  status      String @default("Available")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
