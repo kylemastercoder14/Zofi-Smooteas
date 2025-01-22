@@ -34,7 +34,7 @@ export function LoginForm({
         toast.success("Logged in successfully. Redirecting to dashboard...");
         if (res.user?.role === "Admin") {
           setTimeout(() => {
-            window.location.href = "/dashboard";
+            window.location.href = "/manage-staff";
           }, 2000);
         } else {
           setTimeout(() => {
