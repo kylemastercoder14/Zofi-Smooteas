@@ -2,7 +2,8 @@ import React from "react";
 import db from "@/lib/db";
 import StaffForm from "./staff-form";
 
-const StaffId = async ({ params }: { params: { staffId: string } }) => {
+const StaffId = async (props: { params: Promise<{ staffId: string }> }) => {
+  const params = await props.params;
   const staff = await db.user.findUnique({
     where: {
       id: params.staffId,

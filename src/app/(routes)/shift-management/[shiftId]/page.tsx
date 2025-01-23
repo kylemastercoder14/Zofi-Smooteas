@@ -2,7 +2,8 @@ import React from "react";
 import db from "@/lib/db";
 import ShiftForm from "./shift-form";
 
-const ShiftId = async ({ params }: { params: { shiftId: string } }) => {
+const ShiftId = async (props: { params: Promise<{ shiftId: string }> }) => {
+  const params = await props.params;
   const shift = await db.shift.findUnique({
     where: {
       id: params.shiftId,
