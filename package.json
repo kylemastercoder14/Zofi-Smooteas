@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build && prisma generate && npm install --legacy-peer-deps",
     "heroku-postbuild": "npm install --legacy-peer-deps && npm run build",
+    "postinstall": "prisma generate",
     "start": "next start",
     "lint": "next lint"
   },
