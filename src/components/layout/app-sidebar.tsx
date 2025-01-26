@@ -8,7 +8,6 @@ import {
   Clock,
   Logs,
   SquareTerminal,
-  Users,
 } from "lucide-react";
 
 import {
@@ -25,11 +24,6 @@ import { SidebarLogo } from "./sidebar-logo";
 
 const data = {
   navMain: [
-    {
-      title: "Manage Staff",
-      url: "/manage-staff",
-      icon: Users,
-    },
     {
       title: "Shift Management",
       url: "/shift-management",

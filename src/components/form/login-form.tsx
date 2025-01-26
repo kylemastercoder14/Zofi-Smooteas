@@ -32,15 +32,9 @@ export function LoginForm({
         toast.error(res.error);
       } else {
         toast.success("Logged in successfully. Redirecting to dashboard...");
-        if (res.user?.role === "Admin") {
-          setTimeout(() => {
-            window.location.href = "/manage-staff";
-          }, 2000);
-        } else {
-          setTimeout(() => {
-            window.location.href = "/staff/dashboard";
-          }, 2000);
-        }
+        setTimeout(() => {
+          window.location.href = "/inventory-management";
+        }, 2000);
       }
     } catch (error) {
       toast.error("An error occurred. Please try again.");
