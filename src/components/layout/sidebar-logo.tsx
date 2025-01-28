@@ -13,9 +13,9 @@ export function SidebarLogo() {
     <SidebarMenu>
       <SidebarMenuItem>
         <SidebarMenuButton size="lg">
-          <Image src="/logo.png" alt="Logo" width={67} height={67} />
+          <Image src="/logo.png" alt="Logo" width={50} height={50} />
           <div className="grid flex-1 text-left text-sm leading-tight">
-            <span className="truncate font-semibold">Zofi Smooteas</span>
+            <span className="truncate font-semibold">Think Safe</span>
             <span className="truncate text-xs">Dashboard Panel</span>
           </div>
         </SidebarMenuButton>

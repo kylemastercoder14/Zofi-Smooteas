@@ -4,8 +4,6 @@ import * as React from "react";
 import {
   Boxes,
   CalendarCheck,
-  Clipboard,
-  Clock,
   Logs,
   SquareTerminal,
 } from "lucide-react";
@@ -24,21 +22,6 @@ import { SidebarLogo } from "./sidebar-logo";
 
 const data = {
   navMain: [
-    {
-      title: "Shift Management",
-      url: "/shift-management",
-      icon: Clock,
-    },
-    {
-      title: "Attendance Report",
-      url: "/attendance-report",
-      icon: Clipboard,
-    },
-    {
-      title: "Leave Application",
-      url: "/leave-application",
-      icon: CalendarCheck,
-    },
     {
       title: "Inventory Management",
       url: "/inventory-management",
